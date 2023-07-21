@@ -2,69 +2,84 @@
 #include<stdlib.h>
 #define max 5
 
-int top=-1;
 int stack[max];
-void pop();
-void display();
-void push();
+int i;
+int top=-1;
+int choice;
+int value;
 
-void main(){
-    for(;;){
-    printf("\n1.PUSH \n2.POP \n3.DISPLAY");
-    printf("\nENTER THE OPTION:");
-    int option;
-    scanf("%d",&option);
-
-   switch(option){
-    case 1:
-    push();
-    break;
-    case 2:
-    pop();
-    break;
-    case 3:
-    display();
-    break;
-   }
-}
-}
-void push(){
-    for(int i=0;i<max;i++){
-    printf("\nENTER THE ELEMENT:");
-    int element;
-    scanf("%d",&element);
-
-    if(top==max-1){
-        printf("STACK IS OVERFLOW");
-    }
-    else{
-        top++;
-        stack[top]=element;
-    }
-    }
-}
-void pop(){
-    int element;
-    if(top==-1){
-        printf("STACK IS EMPTY");
-    }
-    else{
-        element=stack[top];
-        printf("\nENTER THE DELETING ELEMENT: %d",element);
-           top--;
-    }
-}
-
-void display(){
-    if(top==-1){
-        printf("STACK IS EMPTY");
-    }
-    else{
-            //printf();
-        while(top!=-1){
-            printf("%d",stack[top]);
-            top--;
+    void push(int ele)
+    {
+        if(top==max-1)
+        {
+            printf("overflow");
+        }
+        else
+        {
+            printf("\nthe element is pushed:");
+            scanf("%d",&ele);
+            top=top+1;
+            stack[top]=ele;
         }
     }
-}
+    void pop(int ele)
+    {
+        if(top==-1)
+        {
+            printf("underflow");
+        }
+        else
+        {
+            value=stack[top];
+            printf("\n enter the element is poped");
+            printf("%d",stack[top]);
+            top=top-1;
+        }
+    }
+    void display(int ele)
+    {
+        if(top==-1)
+        {
+            printf("stack is empty");
+        }
+        else{
+            for(i=top;i>=0;i--)
+            {
+                printf("\n%d",stack[i]);
+            }
+        }
+    }
+    int main()
+    {
+        int top=-1;
+        int ele;
+        for(;;)
 
+    {
+     printf("\nstack operations");
+     printf("\n1.push \n2.pop \n3.display");
+
+     while(1)
+     {
+     printf("\nenter the choice:");
+     scanf("%d",&choice);
+
+     switch(choice)
+     {
+        case 1:
+        push(ele);
+        break;
+        case 2:
+        pop(ele);
+        break;
+        case 3:
+        display(ele);
+        break;
+
+        default:
+        printf("nothing");
+     }
+    }
+    }
+    return 0;
+    }

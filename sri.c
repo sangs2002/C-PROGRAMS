@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define max 5
+#define max 3
 
-int queue[max];
+int stack[max];
 int i;
 int rear=-1;
 int front=-1;
@@ -19,9 +19,9 @@ int value;
         {
             printf("\nthe element is enqueued:");
             scanf("%d",&ele);
-            front=0;
+            front =0;
             rear++;
-            queue[rear]=ele;
+            stack[rear]=ele;
         }
     }
     void dequeue(int ele)
@@ -32,9 +32,9 @@ int value;
         }
         else
         {
-            value=queue[front];
+            value=stack[front];
             printf("\n enter the element is dequeued");
-            printf("%d",queue[front]);
+            printf("%d",stack[front]);
             front++;
         }
     }
@@ -42,12 +42,12 @@ int value;
     {
         if(front==-1||front==rear+1)
         {
-            printf("queue is empty");
+            printf("stack is empty");
         }
         else{
             for(i=front;i<=rear;i++)
             {
-                printf("\n%d",queue[i]);
+                printf("\n%d",stack[i]);
             }
         }
     }
@@ -56,14 +56,13 @@ int value;
         int rear=-1;
         int front=-1;
         int ele;
-        for(;;)
+        while(1)
 
     {
-
-     while(1)
-     {
-     printf("\nqueue operations");
+     printf("\nstack operations");
      printf("\n1.enqueue \n2.dequeue \n3.display");
+
+
      printf("\nenter the choice:");
      scanf("%d",&choice);
 
@@ -83,6 +82,6 @@ int value;
         printf("nothing");
      }
     }
-    }
+
     return 0;
     }
