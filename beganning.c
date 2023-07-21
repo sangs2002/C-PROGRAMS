@@ -18,6 +18,9 @@ int main(){
         case 2:
         display();
         break;
+        case 3:
+            count();
+            break;
 
     }
 }
@@ -38,23 +41,23 @@ else{
 }
 
 }
-void insertatfront(){
-newnode = (struct node*)malloc(sizeof(struct node));
-scanf("%d",&newnode->data);
-newnode->next=NULL;
-
-if(head==NULL){
-
-}
-
-}
 void display(){
     int count=0;
     temp = head;
     while(temp!=NULL){
-        printf("%d->",temp->data);
+        printf("%d ",temp->data);
+        //count++;
+        temp=temp->next;
+    }
+    //printf("%d",count);
+}
+void count(){
+    int count=0;
+    temp = head;
+    while(temp!=NULL){
+
         count++;
         temp=temp->next;
     }
-    printf("\nCOUNT IS %d",count);
+    printf("%d",count);
 }
